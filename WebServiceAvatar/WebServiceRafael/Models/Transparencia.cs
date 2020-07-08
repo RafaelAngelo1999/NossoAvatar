@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebServiceRafael.Models
 {
-    public class Cabelo
+    public class Transparencia
     {
         public int Id { get; set; }
         public TipoObjeto TipoObjeto { get; set; }

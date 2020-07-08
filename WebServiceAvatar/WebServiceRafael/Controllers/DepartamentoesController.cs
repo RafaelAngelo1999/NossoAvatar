@@ -12,23 +12,23 @@ namespace WebServiceRafael.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DepartamentosController : ControllerBase
+    public class DepartamentoesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public DepartamentosController(DataContext context)
+        public DepartamentoesController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Departamentos
+        // GET: api/Departamentoes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Departamento>>> GetDepartamento()
         {
             return await _context.Departamento.ToListAsync();
         }
 
-        // GET: api/Departamentos/5
+        // GET: api/Departamentoes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Departamento>> GetDepartamento(int id)
         {
@@ -42,7 +42,7 @@ namespace WebServiceRafael.Controllers
             return departamento;
         }
 
-        // PUT: api/Departamentos/5
+        // PUT: api/Departamentoes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -74,7 +74,7 @@ namespace WebServiceRafael.Controllers
             return NoContent();
         }
 
-        // POST: api/Departamentos
+        // POST: api/Departamentoes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -86,7 +86,7 @@ namespace WebServiceRafael.Controllers
             return CreatedAtAction("GetDepartamento", new { id = departamento.Id }, departamento);
         }
 
-        // DELETE: api/Departamentos/5
+        // DELETE: api/Departamentoes/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Departamento>> DeleteDepartamento(int id)
         {

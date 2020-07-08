@@ -12,48 +12,48 @@ namespace WebServiceRafael.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CorsController : ControllerBase
+    public class TransparenciasController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public CorsController(DataContext context)
+        public TransparenciasController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cors
+        // GET: api/Transparencias
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cor>>> GetCor()
+        public async Task<ActionResult<IEnumerable<Transparencia>>> GetTransparencia()
         {
-            return await _context.Cor.OrderByDescending(a => a.Nome).ToListAsync();
+            return await _context.Transparencia.ToListAsync();
         }
 
-        // GET: api/Cors/5
+        // GET: api/Transparencias/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cor>> GetCor(int id)
+        public async Task<ActionResult<Transparencia>> GetTransparencia(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
+            var transparencia = await _context.Transparencia.FindAsync(id);
 
-            if (cor == null)
+            if (transparencia == null)
             {
                 return NotFound();
             }
 
-            return cor;
+            return transparencia;
         }
 
-        // PUT: api/Cors/5
+        // PUT: api/Transparencias/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCor(int id, Cor cor)
+        public async Task<IActionResult> PutTransparencia(int id, Transparencia transparencia)
         {
-            if (id != cor.Id)
+            if (id != transparencia.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cor).State = EntityState.Modified;
+            _context.Entry(transparencia).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace WebServiceRafael.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CorExists(id))
+                if (!TransparenciaExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace WebServiceRafael.Controllers
             return NoContent();
         }
 
-        // POST: api/Cors
+        // POST: api/Transparencias
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Cor>> PostCor(Cor cor)
+        public async Task<ActionResult<Transparencia>> PostTransparencia(Transparencia transparencia)
         {
-            _context.Cor.Add(cor);
+            _context.Transparencia.Add(transparencia);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCor", new { id = cor.Id }, cor);
+            return CreatedAtAction("GetTransparencia", new { id = transparencia.Id }, transparencia);
         }
 
-        // DELETE: api/Cors/5
+        // DELETE: api/Transparencias/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Cor>> DeleteCor(int id)
+        public async Task<ActionResult<Transparencia>> DeleteTransparencia(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
-            if (cor == null)
+            var transparencia = await _context.Transparencia.FindAsync(id);
+            if (transparencia == null)
             {
                 return NotFound();
             }
 
-            _context.Cor.Remove(cor);
+            _context.Transparencia.Remove(transparencia);
             await _context.SaveChangesAsync();
 
-            return cor;
+            return transparencia;
         }
 
-        private bool CorExists(int id)
+        private bool TransparenciaExists(int id)
         {
-            return _context.Cor.Any(e => e.Id == id);
+            return _context.Transparencia.Any(e => e.Id == id);
         }
     }
 }

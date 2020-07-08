@@ -12,48 +12,48 @@ namespace WebServiceRafael.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CorsController : ControllerBase
+    public class FiltroesController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public CorsController(DataContext context)
+        public FiltroesController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cors
+        // GET: api/Filtroes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cor>>> GetCor()
+        public async Task<ActionResult<IEnumerable<Filtro>>> GetFiltro()
         {
-            return await _context.Cor.OrderByDescending(a => a.Nome).ToListAsync();
+            return await _context.Filtro.ToListAsync();
         }
 
-        // GET: api/Cors/5
+        // GET: api/Filtroes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cor>> GetCor(int id)
+        public async Task<ActionResult<Filtro>> GetFiltro(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
+            var filtro = await _context.Filtro.FindAsync(id);
 
-            if (cor == null)
+            if (filtro == null)
             {
                 return NotFound();
             }
 
-            return cor;
+            return filtro;
         }
 
-        // PUT: api/Cors/5
+        // PUT: api/Filtroes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCor(int id, Cor cor)
+        public async Task<IActionResult> PutFiltro(int id, Filtro filtro)
         {
-            if (id != cor.Id)
+            if (id != filtro.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cor).State = EntityState.Modified;
+            _context.Entry(filtro).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace WebServiceRafael.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CorExists(id))
+                if (!FiltroExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace WebServiceRafael.Controllers
             return NoContent();
         }
 
-        // POST: api/Cors
+        // POST: api/Filtroes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Cor>> PostCor(Cor cor)
+        public async Task<ActionResult<Filtro>> PostFiltro(Filtro filtro)
         {
-            _context.Cor.Add(cor);
+            _context.Filtro.Add(filtro);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCor", new { id = cor.Id }, cor);
+            return CreatedAtAction("GetFiltro", new { id = filtro.Id }, filtro);
         }
 
-        // DELETE: api/Cors/5
+        // DELETE: api/Filtroes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Cor>> DeleteCor(int id)
+        public async Task<ActionResult<Filtro>> DeleteFiltro(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
-            if (cor == null)
+            var filtro = await _context.Filtro.FindAsync(id);
+            if (filtro == null)
             {
                 return NotFound();
             }
 
-            _context.Cor.Remove(cor);
+            _context.Filtro.Remove(filtro);
             await _context.SaveChangesAsync();
 
-            return cor;
+            return filtro;
         }
 
-        private bool CorExists(int id)
+        private bool FiltroExists(int id)
         {
-            return _context.Cor.Any(e => e.Id == id);
+            return _context.Filtro.Any(e => e.Id == id);
         }
     }
 }

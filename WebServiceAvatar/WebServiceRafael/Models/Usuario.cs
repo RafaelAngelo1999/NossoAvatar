@@ -10,7 +10,6 @@ namespace WebServiceRafael.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string AvatarUrl { get; set; }
-        public int SetorId { get; set; }
         public Departamento Departamento { get; set; }
     }
 }

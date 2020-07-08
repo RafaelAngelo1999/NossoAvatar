@@ -60,112 +60,135 @@
         <!-- form user info -->
         <div class="card card-outline-secondary">
             <div class="card-header">
-                <h3 class="mb-0">User Information</h3>
+                <h3 class="mb-5" style="padding-bottom: 15px;">Informações Avatar</h3>
             </div>
             <div class="card-body">
                 <form class="form" role="form" autocomplete="off">
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Estilo Avatar</label>
                         <div class="col-lg-9">
-                            <select (change)="onChangeCabelo($event.target.value)" class="form-control" size="0">
-                                <option *ngFor="let cabelo of listCabelos" >
-                                    {{cabelo.nome}}
+                            <select (change)="onChangeEstilo($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let estilo of listEstilo" value={{estilo.nome}}>
+                                    {{estilo.traducao}}
                                 </option>
                             </select>  
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Cabelo</label>
                         <div class="col-lg-9">
-                            <!-- <select (change)="onChangeAcessorio($event.target.value)" class="form-control" size="0">
-                                <option *ngFor="let acessorio of listAcessorios" >
-                                    {{cabelo.nome}}
+                            <select (change)="onChangeCabelo($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let cabelo of listCabelos" value={{cabelo.nome}}>
+                                    {{cabelo.traducao}}
                                 </option>
-                            </select>   -->
+                            </select>  
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Acessorio</label>
                         <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
-                                    Canada)</option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
-                                    Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
-                                    Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
-                                    Canada)</option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                            </select>
+                            <select (change)="onChangeAcessorios($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let acessorio of listAcessorios" value={{acessorio.nome}}>
+                                    {{acessorio.traducao}}
+                                </option>
+                            </select>  
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Cor do Cabelo</label>
                         <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
-                                    Canada)</option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
-                                    Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
-                                    Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
-                                    Canada)</option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                            </select>
+                            <select (change)="onChangeCorCabelo($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let corCabelo of listCoresCabelo" value={{corCabelo.nome}}>
+                                    {{corCabelo.traducao}}
+                                </option>
+                            </select>  
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Barba</label>
                         <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
-                                    Canada)</option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
-                                    Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
-                                    Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
-                                    Canada)</option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                            </select>
+                            <select (change)="onChangeBarba($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let barba of listBarbas" value={{barba.nome}}>
+                                    {{barba.traducao}}
+                                </option>
+                            </select>  
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                        <label class="col-lg-3 col-form-label form-control-label">Barba Cor</label>
                         <div class="col-lg-9">
-                            <select id="user_time_zone" class="form-control" size="0">
-                                <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                                <option value="Alaska">(GMT-09:00) Alaska</option>
-                                <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp;
-                                    Canada)</option>
-                                <option value="Arizona">(GMT-07:00) Arizona</option>
-                                <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp;
-                                    Canada)</option>
-                                <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central
-                                    Time (US &amp; Canada)</option>
-                                <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp;
-                                    Canada)</option>
-                                <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                            </select>
+                            <select (change)="onChangeBarbaCor($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let corbarba of listCoresBarba" value={{corbarba.nome}} >
+                                    {{corbarba.traducao}}
+                                </option>
+                            </select>  
                         </div>
                     </div>
-
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Roupa</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeRoupa($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let roupa of listRoupa" value={{roupa.nome}}>
+                                    {{roupa.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Cor Roupa</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeCorRoupa($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let corRoupa of listCoresRoupa" value={{corRoupa.nome}}>
+                                    {{corRoupa.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Olhos</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeOlhos($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let olhos of listOlhos" value={{olhos.nome}} >
+                                    {{olhos.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Sombracelha</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeSombrancelhas($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let sombra of listSombrancelha" value={{sombra.nome}} >
+                                    {{sombra.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Boca</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeBoca($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let boca of listBocas" value={{boca.nome}} >
+                                    {{boca.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Cor</label>
+                        <div class="col-lg-9">
+                            <select (change)="onChangeCor($event.target.value)" class="form-control" size="0">
+                                <option *ngFor="let cor of listCor" value={{cor.nome}} >
+                                    {{cor.traducao}}
+                                </option>
+                            </select>  
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label"></label>
                         <div class="col-lg-9">
-                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                            <input type="button" class="btn btn-primary" value="Save Changes" (click)="onPrint()">
+                            <input type="reset" class="btn btn-secondary p-3" value="Resetar">
+                            <input type="button" class="btn btn-primary p-3" value="Salvar Alterações" (click)="onPrint()">
                         </div>
                     </div>
                 </form>
@@ -181,7 +204,7 @@
                     src='{{url}}' />
             </div>
             <div class="font-weight-normal" style="margin: 5px;" style="text-align: center">
-                <h3> Rafael Angelo - Desenvolvimento</h3>
+                <h3> {{model.name}} - {{model.departamento}}</h3>
             </div>
         </div>
         <div class="col-md-12">
@@ -196,15 +219,19 @@
                 <div class="card-body">
                     <form class="form" role="form" autocomplete="off">
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Nome/Sobrenome</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Jane">
+                                <input [(ngModel)]="model.name" name="name" class="form-control" type="text" value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Departamento</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Bishop">
+                                <select (change)="onChangeDepartamento($event.target.value)" class="form-control" size="0">
+                                    <option *ngFor="let departamento of listDepartamento" value={{departamento.nome}} >
+                                        {{departamento.traducao}}
+                                    </option>
+                                </select>  
                             </div>
                         </div>
                     </form>

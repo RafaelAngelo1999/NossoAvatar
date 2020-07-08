@@ -8,6 +8,8 @@ namespace WebServiceRafael.Models
     public class Roupa
     {
         public int Id { get; set; }
+        public TipoObjeto TipoObjeto { get; set; }
         public string Nome { get; set; }
+        public string Traducao { get; set; }
     }
 }

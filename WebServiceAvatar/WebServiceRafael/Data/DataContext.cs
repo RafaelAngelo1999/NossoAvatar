@@ -15,8 +15,8 @@ namespace WebServiceRafael.Data
         }
 
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Departamento> Departamento { get; set; }
-        public DbSet<Cabelo> Cabelo { get; set; }
+        public DbSet<WebServiceRafael.Models.Departamento> Departamento { get; set; }
+        public DbSet<WebServiceRafael.Models.Cabelo> Cabelo { get; set; }
         public DbSet<WebServiceRafael.Models.Acessorios> Acessorios { get; set; }
         public DbSet<WebServiceRafael.Models.Barba> Barba { get; set; }
         public DbSet<WebServiceRafael.Models.Boca> Boca { get; set; }
@@ -25,6 +25,10 @@ namespace WebServiceRafael.Data
         public DbSet<WebServiceRafael.Models.Olhos> Olhos { get; set; }
         public DbSet<WebServiceRafael.Models.Roupa> Roupa { get; set; }
         public DbSet<WebServiceRafael.Models.Sombrancelha> Sombrancelha { get; set; }
+        public DbSet<WebServiceRafael.Models.Filtro> Filtro { get; set; }
+        public DbSet<WebServiceRafael.Models.CorCabelo> CorCabelo { get; set; }
+        public DbSet<WebServiceRafael.Models.TipoObjeto> TipoObjeto { get; set; }
+        public DbSet<WebServiceRafael.Models.Transparencia> Transparencia { get; set; }
 
     }
 }

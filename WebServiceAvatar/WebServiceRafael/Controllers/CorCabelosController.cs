@@ -12,48 +12,48 @@ namespace WebServiceRafael.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CorsController : ControllerBase
+    public class CorCabelosController : ControllerBase
     {
         private readonly DataContext _context;
 
-        public CorsController(DataContext context)
+        public CorCabelosController(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cors
+        // GET: api/CorCabelos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cor>>> GetCor()
+        public async Task<ActionResult<IEnumerable<CorCabelo>>> GetCorCabelo()
         {
-            return await _context.Cor.OrderByDescending(a => a.Nome).ToListAsync();
+            return await _context.CorCabelo.ToListAsync();
         }
 
-        // GET: api/Cors/5
+        // GET: api/CorCabelos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Cor>> GetCor(int id)
+        public async Task<ActionResult<CorCabelo>> GetCorCabelo(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
+            var corCabelo = await _context.CorCabelo.FindAsync(id);
 
-            if (cor == null)
+            if (corCabelo == null)
             {
                 return NotFound();
             }
 
-            return cor;
+            return corCabelo;
         }
 
-        // PUT: api/Cors/5
+        // PUT: api/CorCabelos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCor(int id, Cor cor)
+        public async Task<IActionResult> PutCorCabelo(int id, CorCabelo corCabelo)
         {
-            if (id != cor.Id)
+            if (id != corCabelo.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(cor).State = EntityState.Modified;
+            _context.Entry(corCabelo).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace WebServiceRafael.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CorExists(id))
+                if (!CorCabeloExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace WebServiceRafael.Controllers
             return NoContent();
         }
 
-        // POST: api/Cors
+        // POST: api/CorCabelos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Cor>> PostCor(Cor cor)
+        public async Task<ActionResult<CorCabelo>> PostCorCabelo(CorCabelo corCabelo)
         {
-            _context.Cor.Add(cor);
+            _context.CorCabelo.Add(corCabelo);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCor", new { id = cor.Id }, cor);
+            return CreatedAtAction("GetCorCabelo", new { id = corCabelo.Id }, corCabelo);
         }
 
-        // DELETE: api/Cors/5
+        // DELETE: api/CorCabelos/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Cor>> DeleteCor(int id)
+        public async Task<ActionResult<CorCabelo>> DeleteCorCabelo(int id)
         {
-            var cor = await _context.Cor.FindAsync(id);
-            if (cor == null)
+            var corCabelo = await _context.CorCabelo.FindAsync(id);
+            if (corCabelo == null)
             {
                 return NotFound();
             }
 
-            _context.Cor.Remove(cor);
+            _context.CorCabelo.Remove(corCabelo);
             await _context.SaveChangesAsync();
 
-            return cor;
+            return corCabelo;
         }
 
-        private bool CorExists(int id)
+        private bool CorCabeloExists(int id)
         {
-            return _context.Cor.Any(e => e.Id == id);
+            return _context.CorCabelo.Any(e => e.Id == id);
         }
     }
 }
