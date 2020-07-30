@@ -3,17 +3,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 import { Subject, Subscription } from 'rxjs';
 import { Identifiers } from '@angular/compiler';
 import { HttpClient } from '@angular/common/http';
-import { Opcao, ListComponent } from './list/list.component';
-
-
-export class Cliente {
-  nome: string = '';
-  tipo: number = 1;
-  genero: number = 1;
-  dataNascimento: Date = null;
-  observacao: string = '';
-  inativo: boolean = false;
-}
+import { Opcao, ListComponent, Usuario } from '../app/list/list.component';
 
 @Component({
   selector: 'app-root',
@@ -56,6 +46,7 @@ export class AppComponent {
   listBocas = this.list.listBocas
   listCor = this.list.listCor
   listDepartamento = this.list.listDepartamento
+  usuario;
 
   readonly apiURL: string;
 

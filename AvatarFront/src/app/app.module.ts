@@ -8,29 +8,34 @@ import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListComponent } from './list/list.component';
+import { ListComponent, Opcao, Usuario } from './list/list.component';
+import { AvatarComponent } from './avatar/avatar.component';
+import { LoginComponent } from './login/login.component';
+import { GlobalService } from '../app/global.service';
 
 @NgModule({
    declarations: [
       AppComponent,
       MenuHeaderComponent,
       HomeComponent,
-      ListComponent
+      ListComponent,
+      AvatarComponent,
+      LoginComponent,
    ],
    imports: [
       BrowserModule,
       FormsModule,
       RouterModule.forRoot(ROUTER),
       ReactiveFormsModule,
-      HttpClientModule
+      HttpClientModule,
    ],
    providers: [
       FormBuilder,
-      ListComponent
+      ListComponent,
    ],
    bootstrap: [
       AppComponent
    ],
-   exports: []
+   exports: [LoginComponent]
 })
 export class AppModule { }

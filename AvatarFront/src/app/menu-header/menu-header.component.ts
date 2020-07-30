@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../global.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-header',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private globalService: GlobalService, private router : Router) { }
 
   ngOnInit() {
   }
-
+  logOff(){
+    this.globalService.userLogado = false
+    localStorage.clear();
+    console.log(this.globalService.userLogado)
+    this.router.navigateByUrl('/login');
+  }
 }

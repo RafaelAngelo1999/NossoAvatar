@@ -3,11 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuHeaderComponent } from './menu-header/menu-header.component';
+import { AvatarComponent } from './avatar/avatar.component';
+import { LoginComponent } from './login/login.component';
 
 
 export const ROUTER: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: MenuHeaderComponent }
+  { path: '', component: AvatarComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'avatar', component: AvatarComponent },
+  { path: 'menu', component: MenuHeaderComponent },
+  { path: 'login', component: LoginComponent },
 
 ];
 
